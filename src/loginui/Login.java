@@ -71,7 +71,30 @@ public class Login implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == btnLogin){
             //auth user
-            JOptionPane.showMessageDialog(frame, "Login clicked", "Dialog Title", 0);
+            if(txtUsername.getText().equals("")){
+                JOptionPane.showMessageDialog(frame, 
+                        "Enter username", "Error!", 
+                        JOptionPane.ERROR_MESSAGE);
+                txtUsername.requestFocus();
+            }else if(txtPassword.getText().equals("")){
+                JOptionPane.showMessageDialog(frame, 
+                        "Enter password", "Error!", 
+                        JOptionPane.ERROR_MESSAGE);
+                txtPassword.requestFocus();
+            }else{
+                if(txtUsername.getText().equals("admin")
+                   && txtPassword.getText().equals("1234")){
+                    JOptionPane.showMessageDialog(frame, 
+                        "Login successful", "Success", 
+                        JOptionPane.INFORMATION_MESSAGE);
+                }else{
+                    JOptionPane.showMessageDialog(frame, 
+                        "Invalid username or password", 
+                        "Login failed", 
+                        JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            
         }
     }
     
